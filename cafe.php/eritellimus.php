@@ -23,7 +23,7 @@ $tuhksuhkur_hind = 2;
 <form action="" method="get">
         <div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon1">Inimeste arv</span>
-    <input type="number" name="inimesed" value="10">
+    <input type="number" name="inimesed" value="">
     </div>
     <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
     <input type="checkbox" class="btn-check" id="karamell" autocomplete="off">
@@ -35,7 +35,7 @@ $tuhksuhkur_hind = 2;
     <input type="checkbox" class="btn-check" id="tuhksuhkur" autocomplete="off">
     <label class="btn btn-outline-primary" for="tuhksuhkur">tuhksuhkur</label>
 
-        <input type="submit" class="btn btn-success">Kinnita</input>
+        <button type="submit" class="btn btn-success" body style="background:hotpink">Kinnita</button>
     </div>
     </form>
 
@@ -43,9 +43,9 @@ $tuhksuhkur_hind = 2;
 	//lisab vormist saadud andmed muutujasse
     if(isset($_GET["inimesed"])){
         $inimeste_arv = $_GET["inimesed"];
-         echo 'inimesi on '.$inimeste_arv.'tk';
+         echo 'Inimesi on '.$inimeste_arv.'tk';
     }
-    if(isset($_GET["karamell"])&&isset($_GET["šokolaad"])&&isset($_GET["tuhksuhkur"])){
+    if(isset($_GET["karamell"])&&isset($_GET["sokolaad"])&&isset($_GET["tuhksuhkur"])){
         $karamell = $_GET["karamell"];
         $sokolaad = $_GET["sokolaad"];
         $tuhksuhkur = $_GET["tuhksuhkur"];
