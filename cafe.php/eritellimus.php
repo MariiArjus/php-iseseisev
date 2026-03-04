@@ -1,63 +1,72 @@
-<?php
-$karamell_hind = 3;
-$sokolaad_hind = 4;
-$tuhksuhkur_hind = 2;
+ <?php
 
+$inimesed = 0;
+$lisandid = 0;
+$vastus = "";
+$failinimi = "orders.txt";
+
+
+if (!empty($_GET["inimesed"])) {
+    $inimesed = $_GET["inimesed"];
+    
+
+    if (isset($_GET["karamell"])) {
+        $lisandid += 3;
+    }
+    if (isset($_GET["sokolaad"])) {
+        $lisandid += 4;
+    }
+    if (isset($_GET["tuhksuhkur"])) {
+        $lisandid += 2;
+    }
+
+
+    $summa = $inimesed * (5 + $lisandid);
+    
+    $vastus = "Hind kokku: $summa €";
+
+    $fail = fopen($failinimi, "a");
+
+}
 ?>
 
 <!doctype html>
-<html lang="en">
-  <head>
+<html lang="et">
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Harjutus 02</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  </head>
-  <body>
+    <title>Koogi tellimine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-5">
 
+    <div class="container border p-4" style="max-width: 500px;">
+        <h3>Eritellimuse calc</h3>
+        <hr>
+        
+        <form action="" method="get">
+            <div class="mb-3">
+                <label>Mitu inimest sööb?</label>
+                <input type="number" min="1" name="inimesed" class="form-control" required>
+            </div>
 
-<h1>Eritellimus</h1>
+            <p>Vali lisandid:</p>
+            <div class="mb-3">
+                <input type="checkbox" name="karamell" id="k"> <label for="k">Karamell +3€</label><br>
+                <input type="checkbox" name="sokolaad" id="s"> <label for="s">Šokolaad +4€</label><br>
+                <input type="checkbox" name="tuhksuhkur" id="t"> <label for="t">Tuhksuhkur +2€</label>
+            </div>
 
+            <button type="submit" class="btn btn-primary w-100" style="background-color: hotpink; border: none;">
+                Arvuta hind
+            </button>
+        </form>
 
-
-<form action="" method="get">
-        <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Inimeste arv</span>
-    <input type="number" name="inimesed" value="">
+        <?php if ($vastus != ""): ?>
+            <div class="alert alert-info mt-3">
+                <?php echo $vastus; ?>
+            </div>
+        <?php endif; ?>
     </div>
-    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-    <input type="checkbox" class="btn-check" id="karamell" autocomplete="off">
-    <label class="btn btn-outline-primary" for="karamell">karamell</label>
 
-    <input type="checkbox" class="btn-check" id="sokolaad" autocomplete="off">
-    <label class="btn btn-outline-primary" for="sokolaad">šokolaad</label>
-
-    <input type="checkbox" class="btn-check" id="tuhksuhkur" autocomplete="off">
-    <label class="btn btn-outline-primary" for="tuhksuhkur">tuhksuhkur</label>
-
-        <button type="submit" class="btn btn-success" body style="background:hotpink">Kinnita</button>
-    </div>
-    </form>
-
-<?php
-	//lisab vormist saadud andmed muutujasse
-    if(isset($_GET["inimesed"])){
-        $inimeste_arv = $_GET["inimesed"];
-         echo 'Inimesi on '.$inimeste_arv.'tk';
-    }
-    if(isset($_GET["karamell"])&&isset($_GET["sokolaad"])&&isset($_GET["tuhksuhkur"])){
-        $karamell = $_GET["karamell"];
-        $sokolaad = $_GET["sokolaad"];
-        $tuhksuhkur = $_GET["tuhksuhkur"];
-        printf("Külg A: %d<br>Külg B: %d<br>Kõrgus: %d<br>Trapetsi pindala: %.2f<br>Romb: %d", $kylg_a, $kylg_b, $kylg_h, $trapets_s, $romb_p);   
-
-
-    }
-
-    
-
-?>
-
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>
