@@ -1,10 +1,8 @@
  <?php
-
 $inimesed = 0;
 $lisandid = 0;
 $vastus = "";
 $failinimi = "orders.txt";
-
 
 if (!empty($_GET["inimesed"])) {
     $inimesed = $_GET["inimesed"];
@@ -26,7 +24,8 @@ if (!empty($_GET["inimesed"])) {
     $vastus = "Hind kokku: $summa €";
 
     $fail = fopen($failinimi, "a");
-
+    fwrite($fail, "Inimesi: $inimesed | Lisandid: $lisandid | Kokku: $summa €\n");
+    fclose($fail);
 }
 ?>
 
