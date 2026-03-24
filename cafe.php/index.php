@@ -12,7 +12,66 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        
     </head>
+    <style>
+        body {
+    background-color: #ffe6f2;
+    font-family: Arial, sans-serif;
+}
+
+
+.site-heading-upper {
+    color: hotpink;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+
+#mainNav {
+    background-color: #ff66b3 !important;
+}
+
+#mainNav .nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+
+#mainNav .nav-link:hover {
+    color: #fff0f7 !important;
+    text-decoration: underline;
+}
+
+
+.intro-text {
+    background-color: #ffd9ec !important;
+    border: 2px solid hotpink;
+}
+
+.btn-primary {
+    background-color: hotpink;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #ff4da6;
+}
+
+.cta-inner {
+    background-color: #ffe6f2 !important;
+    border: 2px solid #ff99cc;
+}
+
+.footer {
+    background-color: #ff66b3;
+}
+.footer p {
+    color: white;
+}
+    </style>
+
+
+    
     <body>
         <header>
             <h1 class="site-heading text-center text-faded d-none d-lg-block">
@@ -39,7 +98,8 @@
         <section class="page-section clearfix">
             <div class="container">
                 <div class="intro">
-                    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="..." />
+                    <img src="img/about.jpg"style="width: 750px; height: 450px;" alt="" />
+
                     <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                         <h2 class="section-heading mb-4">
                             <span class="section-heading-upper">Fresh Coffee</span>
@@ -67,15 +127,9 @@
             </div>
         </section>
         <footer class="footer text-faded text-center py-5">
-            <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2023</p></div>
+            <div class="container"><p class="m-0 small">Copyright &copy; Minu kohvik 2026</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
-
-
-
-
-
-
